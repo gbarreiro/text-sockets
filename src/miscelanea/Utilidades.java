@@ -71,13 +71,13 @@ public class Utilidades {
 	 * @param programa: "Cliente" o "Servidor"
 	 */
 	public static void errorArgs(String programa) {
-		System.out.println("Argumentos de entrada incorrectos:");
-		if(programa.equalsIgnoreCase("cliente")) {
-			System.out.println("\tjava Cliente -(udp|tls) <ip_servidor> <puerto> [truststore_cliente] [subcadena]");
-			System.out.println("\t\ttrustore_cliente: solo para TLS");
-			System.out.println("\t\tsubcadena: solo para UDP");
-		}else if(programa.equalsIgnoreCase("servidor")) {
-			System.out.println("java Servidor <puerto> <keystore> <password_keystore> <fichero_de_mensajes>");
+		System.out.println("Wrong args:");
+		if(programa.equalsIgnoreCase("client")) {
+			System.out.println("\tjava Client -(udp|tls) <server_ip> <port> [client_truststore] [substring]");
+			System.out.println("\t\tclient_truststore: only for TLS");
+			System.out.println("\t\tsubstring: only for UDP");
+		}else if(programa.equalsIgnoreCase("server")) {
+			System.out.println("java Server <port> <keystore> <keystore_password> <textfile>");
 		}
 		System.exit(1);
 	}
@@ -87,7 +87,7 @@ public class Utilidades {
 	 * y finaliza la ejecución del programa.
 	 */
 	public static void errorIO() {
-		System.out.println("Error durante la conexión. Se aborta la ejecución del programa.");
+		System.out.println("Error in connection. Program execution aborted.");
 		System.exit(1);
 	}
 	
@@ -96,7 +96,7 @@ public class Utilidades {
 	 * y finaliza la ejecución del programa.
 	 */
 	public static void errorFicheroInexistente() {
-		System.out.println("El fichero no existe o no se puede leer. Se aborta la ejecución del programa.");
+		System.out.println("The file does not exist or cannot be read. Program execution aborted.");
 		System.exit(1);
 	}
 

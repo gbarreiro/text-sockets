@@ -73,7 +73,7 @@ public class ClienteTLS {
 	 */
 	private static String nuevaSolicitud() {
 		Scanner scanner = new Scanner(System.in);
-		System.out.printf("Introduzca una cadena [\"end\" para salir]: ");
+		System.out.printf("Type a string [\"end\" to exit]: ");
 		String cadena = scanner.nextLine();
 		return cadena;
 

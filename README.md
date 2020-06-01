@@ -5,13 +5,13 @@ This connection can be done with UDP (one query per call) or establishing a TCP 
 
 # Running
 
-- **Client:** `java Cliente -(udp|tls) server_ip port [client_truststore] [substring]`
+- **Client:** `java Client -(udp|tls) server_ip port [client_truststore] [substring]`
   - `client_truststore` only in TLS
   - `substring` only in UDP
 
-- **Server:** `java Servidor port keystore password_keystore textfile`
+- **Server:** `java Server port keystore password_keystore textfile`
 
 # TLS connection
-For establishing the TLS encrypted connection, the client must have the certificate used by the server, in order to be able of authenticating it. To do this, you can use the keystores available in this repository: `keystore_servidor.ks` as the Server keystore and `truststore_cliente.ks` as the Client truststore. The certificate used by the Server is `cert_server.cer`, included within both keystores.
+For establishing the TLS encrypted connection, the client must have the certificate used by the server, in order to be able of authenticating it. To do this, you can use the keystores available in this repository: `server_keystore.ks` as the Server keystore and `client_truststore.ks` as the Client truststore. The certificate used by the Server is `cert_server.cer`, included within both keystores.
 
-`keystore_servidor.ks` password is `unservidor`, and `truststore_cliente.ks` is `uncliente`.
+`server_keystore.ks` password is `unservidor`, and `client_truststore.ks` is `uncliente`.

@@ -62,7 +62,7 @@ public class ClienteUDP {
 			return respuesta;
 		}catch(SocketTimeoutException e) {
 			// Si el servidor no respondiese pasados 5 segundos
-			System.out.println("El servidor " + ipServidor.getHostAddress() + ":" + puerto + " no responde. Se aborta la conexión.");
+			System.out.println("Server " + ipServidor.getHostAddress() + ":" + puerto + " does not respond. Connection aborted.");
 			System.exit(1);
 			return null;
 		}

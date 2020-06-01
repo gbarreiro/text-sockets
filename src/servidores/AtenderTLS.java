@@ -46,7 +46,7 @@ public class AtenderTLS extends Thread {
 					// Buscamos en el fichero de texto la cadena
 					String respuesta = Utilidades.buscarLineas(peticion, lineasFichero);
 					
-					System.out.println("Solicitud TLS recibida: " + ipCliente + " -- Cadena solicitada: \"" + peticion + "\"");
+					System.out.println("TLS query received: " + ipCliente + " -- Queried string: \"" + peticion + "\"");
 
 					// Devolvemos la respuesta
 					DataOutputStream out = new DataOutputStream(cliente.getOutputStream());
@@ -56,23 +56,23 @@ public class AtenderTLS extends Thread {
 					in.close();
 					cliente.close();
 					escuchando = false;
-					System.out.println("Conexión cerrada por el cliente: " + ipCliente);
+					System.out.println("Connection closed by client: " + ipCliente);
 				}
 				
 			}
 			
 		} catch (SocketTimeoutException e1) {
 			// Han pasado 60 segundos sin que el usuario hiciese ninguna petición
-			System.out.println("Hilo cerrado por inactividad: " + ipCliente);
+			System.out.println("Thread finished due inactivity: " + ipCliente);
 			try {
 				cliente.close();
 			} catch (IOException e) {
-				System.out.println("Error al intentar cerrar la conexión con el cliente " + ipCliente);
+				System.out.println("Error while trying to close connection with client " + ipCliente);
 			}
 			escuchando = false;
 		} catch(IOException e2) {
 			// El usuario ha abortado la conexión
-			System.out.println("Conexión cerrada por el cliente: " + ipCliente);
+			System.out.println("Connection closed by client: " + ipCliente);
 			escuchando = false;
 		}
 	}

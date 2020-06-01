@@ -16,7 +16,7 @@ import servidores.SocketUDP;
  * @author Guillermo Barreiro
  *
  */
-public class Servidor {
+public class Server {
 
 	/**
 	 * Método inicial del programa servidor.
@@ -29,7 +29,7 @@ public class Servidor {
 		// Obtiene todos los parámetros
 		if(args.length!=4) {
 			// Número de argumentos incorrecto: abortamos el programa
-			Utilidades.errorArgs("servidor");
+			Utilidades.errorArgs("server");
 		}
 		
 		int puerto = 0;
@@ -37,7 +37,7 @@ public class Servidor {
 			puerto = Integer.parseInt(args[0]);
 		}catch(NumberFormatException nfe) {
 			// El argumento "puerto" no es un número
-			Utilidades.errorArgs("servidor");
+			Utilidades.errorArgs("server");
 		}
 		
 		// Intenta leer el fichero de texto y cargar su contenido en una lista, línea a línea

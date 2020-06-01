@@ -5,15 +5,15 @@ Dicha conexión podrá realizarse a través de UDP (una solicitud por invocació
 
 # Ejecución
 
-<b>Cliente:</b> `java Cliente -(udp|tls) ip_servidor puerto [truststore_cliente] [subcadena]`
+<b>Client:</b> `java Client -(udp|tls) ip_servidor puerto [truststore_cliente] [subcadena]`
 <ul>
 <li><i>truststore_cliente</i> solo se especifica en TLS
 <li><i>subcadena</i> solo se especifica en UDP
 </ul>
 
-<br><b>Servidor:</b> `java Servidor puerto keystore password_keystore fichero_de_mensajes`
+<br><b>Server:</b> `java Server puerto keystore password_keystore fichero_de_mensajes`
 
 # Funcionamiento de la conexión TLS
-Para poder establecer correctamente la conexión TLS, es necesario que el Cliente disponga del certificado usado por el Servidor, de forma que pueda autenticarlo. Para ello, se pueden usar los almacenes de claves disponibles en este repositorio: `keystore_servidor.ks` como keystore del Servidor y `truststore_cliente.ks` como truststore del Cliente. El certificado utilizado por el Servidor es `cert_server.cer`, incluido dentro de ambos almacenes.
+Para poder establecer correctamente la conexión TLS, es necesario que el Cliente disponga del certificado usado por el Servidor, de forma que pueda autenticarlo. Para ello, se pueden usar los almacenes de claves disponibles en este repositorio: `server_keystore.ks` como keystore del Servidor y `client_truststore.ks` como truststore del Cliente. El certificado utilizado por el Servidor es `cert_server.cer`, incluido dentro de ambos almacenes.
 
-La contraseña de `keystore_servidor.ks` es `unservidor`, y la de `truststore_cliente.ks` es `uncliente`
+La contraseña de `server_keystore.ks` es `unservidor`, y la de `client_truststore.ks` es `uncliente`

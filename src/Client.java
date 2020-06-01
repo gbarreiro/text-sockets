@@ -11,7 +11,7 @@ import miscelanea.Utilidades;
  * @author Guillermo Barreiro
  *
  */
-public class Cliente {
+public class Client {
 
 	/**
 	 * Método principal del programa cliente. 
@@ -26,21 +26,21 @@ public class Cliente {
 		// Obtiene todos los parámetros
 		if(args.length!=4) {
 			// Número de argumentos incorrecto: abortamos el programa
-			Utilidades.errorArgs("cliente");
+			Utilidades.errorArgs("client");
 		}
 		
 		String servicio = args[0].toLowerCase();
-		if(!servicio.equals("-udp") && !servicio.equals("-tls")) Utilidades.errorArgs("cliente");
+		if(!servicio.equals("-udp") && !servicio.equals("-tls")) Utilidades.errorArgs("client");
 		
 		String ipServidor = args[1];
-		if(!Utilidades.comprobarIP(ipServidor)) Utilidades.errorArgs("cliente");
+		if(!Utilidades.comprobarIP(ipServidor)) Utilidades.errorArgs("client");
 		
 		int puerto = 0;
 		try {
 			puerto = Integer.parseInt(args[2]);
 		}catch(NumberFormatException nfe) {
 			// El argumento "puerto" no es un número
-			Utilidades.errorArgs("cliente");
+			Utilidades.errorArgs("client");
 		}
 		
 		String subcadena = null; // solo necesaria en UDP

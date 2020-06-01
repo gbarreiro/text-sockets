@@ -39,7 +39,7 @@ public class SocketUDP extends Thread{
 	 * indefinidamente.
 	 */
 	public void run() {
-		System.out.println("Socket UDP funcionando en el puerto " + socket.getLocalPort());
+		System.out.println("UDP socket listening in port " + socket.getLocalPort());
 		while(true) {
 			DatagramPacket datagramaRecibido = new DatagramPacket(dataBuffer,BUFFER_SIZE);
 			try {
@@ -48,7 +48,7 @@ public class SocketUDP extends Thread{
 				InetAddress ipCliente = datagramaRecibido.getAddress();
 				int puertoCliente = datagramaRecibido.getPort();
 				String cadena = new String(datagramaRecibido.getData(), 0, datagramaRecibido.getLength());
-				System.out.println("Solicitud UDP recibida: " + ipCliente.getHostAddress() + " -- Cadena solicitada: \"" + cadena + "\"");
+				System.out.println("UDP query received: " + ipCliente.getHostAddress() + " -- Queried string: \"" + cadena + "\"");
 				
 				// Buscamos en el fichero de texto la cadena
 				String respuesta = Utilidades.buscarLineas(cadena, lineasFichero);

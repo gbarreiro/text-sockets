@@ -43,11 +43,11 @@ public class SocketTLS extends Thread{
 	 * indefinidamente. Cada vez que se reciba una petición, se crea un socket secundario para atenderla.
 	 */
 	public void run() {
-		System.out.println("Socket TLS funcionando en el puerto " + socket.getLocalPort());
+		System.out.println("TLS socket listening in port " + socket.getLocalPort());
 		while(true) {
 			try {
 				SSLSocket cliente = (SSLSocket) socket.accept(); // el hilo se bloqueará aquí hasta que se reciba una petición
-				System.out.println("Nuevo cliente TLS: " + cliente.getInetAddress());
+				System.out.println("New TLS client: " + cliente.getInetAddress());
 				AtenderTLS hiloSecundario = new AtenderTLS(cliente, lineasFichero); // crea un hilo secundario para atender a este cliente
 				hiloSecundario.start();
 			} catch (IOException e) {
